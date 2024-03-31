@@ -1,0 +1,11 @@
+
+.bg-purple{
+    background-color: purple !important;
+}
+
+.bg-main{
+    background-image: linear-gradient(rgb(78, 107, 192)35%,rgb(26, 79, 114)60%,rgb(7, 17, 46)) !important;
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-attachment: fixed;
+}
