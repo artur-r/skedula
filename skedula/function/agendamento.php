@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/custom.css">
 </head>
 
-<body class="bg-success-subtle">
+<body class="bg-info-subtle">
 
   <form action="">
     <div class="container pt-5">
@@ -19,96 +19,112 @@
 
       date_default_timezone_set('America/Sao_Paulo');
 
-      $mes = date('M');
+      $mes = date('n');
       $diaMes = date('d');
-      $diaSemana = date('D');
+      $diaSemana = date('N');
 
-      //Pega o dia da semana em inglês, e troca por uma string contendo o nome do dia em português
-      switch ($diaSemana) {
-        case 'Sun':
-          $diaSemana = "Domingo";
-          break;
-        case 'Mon';
-          $diaSemana = "Segunda-feira";
-          break;
-        case 'Tue';
-          $diaSemana = "Terça-feira";
-          break;
-        case 'Wed';
-          $diaSemana = "Quarta-feira";
-          break;
-        case 'Thu';
-          $diaSemana = "Quinta-feira";
-          break;
-        case 'Fri';
-          $diaSemana = "Sexta-feira";
-          break;
-        case 'Sat';
-          $diaSemana = "Sábado";
-          break;
-      }
+      $arrayDiaSemana = array(
+        1=>"Segunda",
+        2 => "Terça",
+        3 => "Quarta",
+        4 => "Quinta",
+        5 => "Sexta",
+        6 => "Sábado",
+        7 => "Domingo"
+      );
 
-      //Pega o mês em inglês, e troca por uma string contendo o nome do mês em português
-      switch ($mes) {
-        case 'Jan':
-          $mes = "Janeiro";
-          break;
-        case 'Feb';
-          $mes = "Fevereiro";
-          break;
-        case 'Mar';
-          $mes = "Março";
-          break;
-        case 'Apr';
-          $mes = "Abril";
-          break;
-        case 'May';
-          $mes = "Maio";
-          break;
-        case 'June';
-          $mes = "Junho";
-          break;
-        case 'July';
-          $mes = "Julho";
-          break;
-        case 'Aug';
-          $mes = "Agosto";
-          break;
-        case 'Sept';
-          $mes = "Setembro";
-          break;
-        case 'Oct';
-          $mes = "Outubro";
-          break;
-        case 'Nov';
-          $mes = "Novembro";
-          break;
-          case 'Dec';
-          $mes = "Dezembro";
-          break;
-      }
+      $arrayMes = array(
+        1=>"Janeiro",
+        2 => "Fevereiro",
+        3 => "Março",
+        4 => "Abril",
+        5 => "Maio",
+        6 => "Junho",
+        7 => "Julho",
+        8 => "Agosto",
+        9 => "Setembro",
+        10 => "Outubro",
+        11 => "Novembro",
+        11 => "Dezembro"
+      );
+      // switch ($mes) {
+      //   case 'Jan':
+      //     $mes = "Janeiro";
+      //     break;
+      //   case 'Feb';
+      //     $mes = "Fevereiro";
+      //     break;
+      //   case 'Mar';
+      //     $mes = "Março";
+      //     break;
+      //   case 'Apr';
+      //     $mes = "Abril";
+      //     break;
+      //   case 'May';
+      //     $mes = "Maio";
+      //     break;
+      //   case 'June';
+      //     $mes = "Junho";
+      //     break;
+      //   case 'July';
+      //     $mes = "Julho";
+      //     break;
+      //   case 'Aug';
+      //     $mes = "Agosto";
+      //     break;
+      //   case 'Sept';
+      //     $mes = "Setembro";
+      //     break;
+      //   case 'Oct';
+      //     $mes = "Outubro";
+      //     break;
+      //   case 'Nov';
+      //     $mes = "Novembro";
+      //     break;
+      //     case 'Dec';
+      //     $mes = "Dezembro";
+      //     break;
+      // }
 
       $diaMesFim = $diaMes + 15;
 
-    //   echo   "<table>
-    //   <tr>
-    //     <td><button>$diaSemana $mes teste</button></td>
-    //   </tr>
-    // </table>";
+      echo   "<table>
+      <tr>
+        <td><button>$diaSemana,  $arrayMes[$mes] teste</button></td>
+      </tr>
+    </table>";
 
-      $arrayDiaSemana = array("Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado");
-
-      while ($diaSemana == $arrayDiaSemana) {
-        echo "<p>$diaSemana, $arrayDiaSemana</p>";
-        $arrayDiaSemana++;
+    $diaAtualSemana = $arrayDiaSemana[$diaSemana];
+    $diaMesInicio = 1;
+    
+    while ($diaMes <= $diaMesFim) {
+      // Pega o dia da semana de hoje
+      $diaAtualSemana = $arrayDiaSemana[$diaSemana];
+      // Gera o botão com o dia da semana atual, que vai se atualizando no array, junto com o dia do mês
+      echo "<button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
+      $diaMes++;
+      if($mes == "3"){
+        $diaMesFim = 30;
+        while ($diaMes <= $diaMesFim){
+          $diaMes++;
+        }
+        echo "<button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMesInicio</button>";
+        $diaMesInicio++;
+      
+        
+        
       }
-
-      while ($diaMes <= $diaMesFim) { //enquanto o dia do mês for menor que 15 adiciona os botões de dia para agendamento, até gerar 16 botões
-        echo "<button type='button' class='btn btn-outline-primary'>$diaSemana  <hr>  DIA $diaMes</button>";
-        $diaMes++;
+      // Incrementa o dia da semana atual e faz o loop para segunda-feira se for domingo (7)
+      $diaSemana++;
+      if ($diaSemana > 7) {
+        $diaSemana = 1;
       }
+      
+    }
 
       var_dump($arrayDiaSemana);
+      echo date('n:m');
+      var_dump($arrayMes);
 
       ?>
 
