@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/custom.css">
 </head>
 
-<body class="bg-info-subtle">
+<body class="bg-dark">
 
   <form action="">
     <div class="container pt-5">
