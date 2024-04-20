@@ -1,6 +1,10 @@
 
 .bg-purple{
-    background-color: purple !important;
+    background-color:#108b87 !important;
+}
+
+.bg-custom{
+    background-color:#d6f0f3 !important;
 }
 
 .bg-main{

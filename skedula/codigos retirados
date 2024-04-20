@@ -1,0 +1,32 @@
+<?php if($mes == "3"){
+        $diaMesFim = 30;
+        while ($diaMes <= $diaMesFim){
+          $diaMes++;
+        }
+        echo "<button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMesInicio</button>";
+        $diaMesInicio++;
+      
+        
+        
+      }
+
+      while ($diaMes <= $diaMesFim) {
+        $diaAtualSemana = $arrayDiaSemana[$diaSemana];
+        echo "<button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
+        $diaMes++;
+    
+        $diaSemana++;
+        if ($diaSemana > 7) {
+            $diaSemana = 1;
+        }
+    
+        if($mes == 4 && $diaMes > $diaMesFim){
+            $diaMesFim = 31;
+            echo "<br>Próximo mês<br>";
+        }
+    }
+
+    
+      
+    
+      
