@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Skedula</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="../assets/custom.css">
+  <link rel="stylesheet" href="assets/custom.css">
 </head>
 
-<body class="bg-custom">
+<body class="bg-dark">
 
   <form action="">
     <div class="container pt-5">
@@ -19,7 +19,6 @@
 
       date_default_timezone_set('America/Sao_Paulo');
 
-      $ano = date('Y');
       $mes = date('n');
       $diaMes = date('d');
       $diaSemana = date('N');
@@ -95,60 +94,10 @@
       </tr>
     </table>";
 
-      $proximoMes = $arrayMes[$mes + 1];
-      $arrayMes = $arrayMes[$mes];
       $diaAtualSemana = $arrayDiaSemana[$diaSemana];
       $diaMesInicio = 1;
-      $quantidadeBotoes = 0;
-      
 
-      switch ($arrayMes) {
-        case 'Janeiro':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Fevereiro':
-          $ultimoDiaMes = 28;
-          if (($ano % 4 == 0 && $ano % 100 != 0) || $ano % 400 == 0)
-            $ultimoDiaMes = 29;
-          break;
-        case 'Março':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Abril':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Maio':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Junho':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Julho':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Agosto':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Setembro':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Outubro':
-          $ultimoDiaMes = 31;
-          break;
-        case 'Novembro':
-          $ultimoDiaMes = 31;
-          break;
-        case 'dezembro':
-          $ultimoDiaMes = 31;
-          break;
-      }
-
-
-
-
-
-
-      while ($diaMes <= $diaMesFim && $diaMes <= $ultimoDiaMes) {
+      while ($diaMes <= $diaMesFim) {
         // Pega o dia da semana de hoje
         $diaAtualSemana = $arrayDiaSemana[$diaSemana];
 
@@ -161,23 +110,16 @@
         if ($diaSemana > 7) {
           $diaSemana = 1;
         }
-        $quantidadeBotoes++;
-      }
 
-      $diferenca = 15 - $quantidadeBotoes;
-      $limiteBotoes = 15;
-      $inicioProximoMes = 1;
-
-      if ($diaMes == $ultimoDiaMes+1 && $quantidadeBotoes < $limiteBotoes ) {
-        echo  "<br> $proximoMes <br>";
-      }
-
-      while ($diaMes == $ultimoDiaMes+1 && $quantidadeBotoes < $limiteBotoes ) {
-          $diaAtualSemana = $arrayDiaSemana[$diaSemana];
-          $diaSemana++;
-          echo "<button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $inicioProximoMes</button>";
-          $quantidadeBotoes++;
-          $inicioProximoMes++;
+         if ($mes == "4") {
+          $diaMesFim = 31;
+          $diaMesLimite = 2;
+          echo "<br>ProximoMes<br>";
+          while ($diaMes > $diaMesFim) {
+            echo "<button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
+            $diaMes++;
+          }
+        } 
       }
 
 
