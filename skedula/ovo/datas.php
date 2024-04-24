@@ -30,4 +30,3 @@ $date = date('H,i,s'); // 2024
 echo "<pre>"; print_r($date); echo "</pre>";
 
 
-?>
