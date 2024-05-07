@@ -18,7 +18,7 @@
       <form>
       <div class="d-grid gap-2">
 
-      <a href="function/agendamento.php" class="btn btn-link border border-primary">Agendar horário</a>
+      <a href="servicos.php" class="btn btn-link border border-primary">Agendar horário</a>
       <a href="ovo/datas.php" class="btn btn-link border border-primary">Reagendar horário</a>
       <a href="agendamento.php" class="btn btn-link border border-primary">Cancelar agendamento</a>
 

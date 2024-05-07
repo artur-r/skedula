@@ -1,10 +1,28 @@
-
 .bg-purple{
-    background-color:#108b87 !important;
+    background-color:#c67020 !important;
 }
 
 .bg-custom{
-    background-color:#d6f0f3 !important;
+    background-color:#7ac0f6 !important;
+}
+
+.btn-outline-primary{
+    color:#3850ff !important;
+}
+
+.orange{
+    color:#1e00ff !important;
+}
+
+.form-label {
+    color:#ffffff !important;
+}
+
+.form-text {
+    color:#ffffff !important;
+}
+p{
+    color: #c67020!important;
 }
 
 .bg-main{
