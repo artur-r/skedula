@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="calc">
+        <label>Valor 1</label>
+        <input type="text" id="v1" value="0">
+        <br><br>
+        <label>Valor 2</label>
+        <input type="text" id="v2" value="0">
+        <br><br>
+        <label>Resultado</label>
+        <input type="text" id="res" value="0">
+        <button id="btn_somarJs">Somar JS</button>
+        <button id="btn_somarJq">Somar JQ</button>
+    </div>
+    <script>
+        let btn_somarJs=document.getElementById("btn_somarJs").addEventListener("click",()=>{
+            let v1 = document.getElementById("v1").value
+            let v2 = document.getElementById("v2").value
+            let soma=parseInt(v1)+parseInt(v2)
+            let res=document.getElementById("res").value=soma
+        })
+
+        //para apontar para o elemento, pode utilizar o $("id ou tag, ou classe...")
+        //para trabalhar com id, utilizar "#"
+        $("#btn_somarJq").click(function(){
+            let v1=$("#v1").val()
+        })
+    </script>
+</body>
+
+
+</html>
