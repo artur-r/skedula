@@ -194,6 +194,7 @@
     }
 
 
+    // $sql = SELECT * FROM agenda where 
 
     ?>
 
