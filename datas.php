@@ -30,11 +30,11 @@
     
 
     $arrayDiaSemana = array(
-      1 => "Segunda",
-      2 => "Terça",
-      3 => "Quarta",
-      4 => "Quinta",
-      5 => "Sexta",
+      1 => "Segunda-feira",
+      2 => "Terça-feira",
+      3 => "Quarta-feira",
+      4 => "Quinta-feira",
+      5 => "Sexta-feira",
       6 => "Sabado",
       7 => "Domingo"
     );
@@ -102,7 +102,7 @@
     $diaMesInicio = 1;
     $quantidadeBotoes = 0;
 
-
+      //Definir ultimo dia de cada mês
     switch ($arrayMes) {
       case 'Janeiro':
         $ultimoDiaMes = 31;
@@ -154,7 +154,7 @@
       if ($diaAtualSemana == "Domingo") {
         echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
       } else {
-        echo "<button type='button' class='btn w-25 btn-outline-primary'><a href='horarios.php?diaAtualSemana=$diaSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
+        echo "<button type='button' class='btn w-25 btn-outline-primary'><a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&servico=$servico'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
       }
       $diaMes++;
 

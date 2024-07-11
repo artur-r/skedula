@@ -23,22 +23,14 @@
       date_default_timezone_set('America/Sao_Paulo');
       $ano = $_GET['ano'];
       $mes = $_GET['mes'];
-      $diaSemana = $_GET['diaAtualSemana']; //pega da URL o dia da semana do botão selecionado
+      $diaAtualSemana = $_GET['diaAtualSemana']; //pega da URL o dia da semana do botão selecionado
       $diaMes = $_GET['diaMes'];
       $servico = $_GET['servico'];
 
-      $arraydiaSemana = array(
-        '1' => 'Segunda-feira',
-        '2' => 'Terça-feira',
-        '3' => 'Quarta-feira',
-        '4' => 'Quinta-feira',
-        '5' => 'Sexta-feira',
-        '6' => 'Sabado',
-      );
+     
 
-      $diaAtualSemana = $arraydiaSemana[$diaSemana];
 
-      $sql = "SELECT * FROM agenda WHERE (dia_mes = $diaMes AND dia_semana = $diaSemana AND mes=$mes AND ano=$ano)";
+      $sql = "SELECT * FROM agenda WHERE (dia_mes = '$diaMes' AND dia_semana = '$diaAtualSemana' AND mes='$mes' AND ano='$ano')";
   
 
       //executa a consulta
@@ -58,7 +50,7 @@
         for ($i = 8; $i < 18; $i++) {
           //Gera botões com horários
             echo "<button type='button' class='btn btn-primary'>
-           <a href='function/agendar.php?diaAtualSemana=$diaSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i'>
+           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i'>
                 $i:00
             </a> 
               </button>";  
@@ -73,7 +65,7 @@
           //verifica se a variável i é um horário já agendado, se o valor de i, não estiver agendado, gera um botão
           if (!in_array($i, $horariosAgendados)) { 
             echo "<button type='button' class='btn btn-primary'>
-           <a href='function/agendar.php?diaAtualSemana=$diaSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i'>
+           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i'>
                 $i:00
             </a> 
               </button>";   
