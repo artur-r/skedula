@@ -23,27 +23,20 @@
         date_default_timezone_set('America/Sao_Paulo');
         $ano = $_GET['ano'];
         $mes = $_GET['mes'];
-        $diaSemana = $_GET['diaAtualSemana'];
+        $diaAtualSemana = $_GET['diaAtualSemana'];
         $diaMes = $_GET['diaMes'];
         $servico = $_GET['servico'];
         $horario = $_GET['horario'];
 
-        $cliente = $_SESSION['usuario'];
-
-        $arraydiaSemana = array(
-            '1'=> 'Segunda-feira',
-            '2'=> 'Terça-feira',   
-            '3'=> 'Quarta-feira',
-            '4'=> 'Quinta-feira',
-            '5'=> 'Sexta-feira',
-            '6'=> 'Sabado',
-        );
-
-        $diaAtualSemana = $arraydiaSemana[$diaSemana];
+        $usuario = $_SESSION['usuario'];
+        $email = $_SESSION['email'];
 
 
-        $sql = mysqli_query($conn,"INSERT INTO agenda (cliente, servico, horario, dia_semana, dia_mes, mes, ano)
-                         VALUES  ('$cliente','$servico',$horario,$diaSemana,$diaMes,$mes,$ano)");
+
+
+
+        $sql = mysqli_query($conn,"INSERT INTO agenda (cliente, email, servico, horario, dia_semana, dia_mes, mes, ano)
+                         VALUES  ('$usuario','$email','$servico','$horario','$diaAtualSemana','$diaMes','$mes','$ano')");
 
 
       
