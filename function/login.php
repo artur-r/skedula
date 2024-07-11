@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
         $_SESSION['email'] = $retorno['email'];
         header("location:../menu.php");;
     } else {
-        echo 'erro';
+        echo 'Erro! Se possuir, retire caracteres maiúsculos do e-mail';
     }
 }
 
