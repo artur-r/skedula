@@ -1,0 +1,97 @@
+if (mysqli_query($conn, $sql)) {
+    echo "<table>
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Data de Abertura</th>
+        <th>Hora de Abertura</th>
+        <th>Usuário de Abertura</th>
+        <th>Whats</th>
+    </tr>";
+
+while ($linha = mysqli_fetch_assoc($resultado)) {
+echo "<tr>
+        <td>{$linha['id_chamado']}</td>
+        <td>{$linha['titulo_chamado']}</td>
+        <td>{$linha['data_abertura']}</td>
+        <td>{$linha['hora_abertura']}</td>
+        <td>{$linha['usuario_abertura']}</td>
+        <td>{$linha['whats']}</td>
+    </tr>";
+}
+
+echo "</table>";
+} else {
+      echo "Deu ruim: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+
+
+
+
+
+
+<div>
+    <table>
+
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Whatsapp</th>
+            <th>Data abertura</th>
+            <th>Hora abertura</th>
+            <th>Usuário criação</th>
+        </tr>
+
+        <tr>
+            <?php 
+            while($dados = mysqli_fetch_assoc($resultado)){
+                echo "<tr>";
+                echo "<td>" . $dados['id_chamado'] . "</td>";
+                echo "<td>" . $dados['titulo_chamado'] . "</td>";
+                echo "<td>" . $dados['descricao'] . "</td>";
+                echo "<td>" . $dados['whats'] . "</td>";
+                echo "<td>" . $dados['data_abertura'] . "</td>";
+                echo "<td>" . $dados['hora_abertura'] . "</td>";
+                echo "<td>" . $dados['usuario_abertura'] . "</td>";
+            }
+            
+            ?>
+        </tr>
+    </table>
+</div>
+
+
+<?php
+// Conectar ao banco de dados (substitua com suas credenciais)
+$servername = "seu_servidor";
+$username = "seu_usuario";
+$password = "sua_senha";
+$dbname = "seu_banco";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar a conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+
+// Obter o ID do chamado a ser movido
+$id_chamado = $_POST['id_chamado'];
+
+// Mover o chamado para a tabela finalizados
+$sql_move_chamado = "INSERT INTO finalizados SELECT * FROM suporte WHERE id = $id_chamado";
+$result_move_chamado = $conn->query($sql_move_chamado);
+
+// Se o movimento for bem-sucedido, remova o chamado da tabela de suporte
+if ($result_move_chamado) {
+    $sql_delete_chamado = "DELETE FROM suporte WHERE id = $id_chamado";
+    $result_delete_chamado = $conn->query($sql_delete_chamado);
+}
+
+// Fechar a conexão com o banco de dados
+$conn->close();
+?>
+
+'<a href="alterar_chamado.php">' . $dados['titulo_chamado'] . '</a>' . "</td>";
