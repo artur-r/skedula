@@ -1,40 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt_br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skedula</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/custom.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" .integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
+<body class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+<div >
 
-<body class="bg-custom">
 
-  <div class="container pt-5">
+    
+    <div class="container text-center">
+  
 
-    <form action="function/login.php" method="POST">
+    <table class="table table-striped table-hover">
 
-      <p class="display-7 bg-purple border border-primary p-1 text-light" style="border-radius:10px;">Olá! Seja bem vindo ao sistema de agendamento.</p>
-      <p class="display-7 bg-purple border border-primary p-1 text-light" style="border-radius:10px;">Antes de iniciarmos seu atendimento por favor, me informe:</p>
 
-      <div class="mb-3">
-        <div class="mb-3">
-          <label for="nome" class="form-label" >Nome e sobrenome</label>
-          <input type="text" class="form-control" id="inputNome" name = "nome" required>
-        </div>
-        <label for="exampleInputEmail1" class="form-label">Endereço de e-mail</label>
-        <input type="email" class="form-control" id="inputEmail" name = "email" required>
-        <div id="emailHelp" class="form-text">Nós nunca comparilharemos seu e-mail com ninguém.</div>
-      </div>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+            <tr>
+                <th>Id</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Whatsapp</th>
+                <th>Data abertura</th>
+                <th>Hora abertura</th>
+                <th>Usuário criação</th>
+                <th>Categoria</th>
+                <th></th>
+                <th></th>
+            </tr>
 
-    </form>
+            <tr>
+                <?php
 
-  </div>
+                include_once("conexao.php");
+                include_once("verifica_login.php");
+                include_once("components/nav.php");
+                
+                //consulta da tabela 
+                $consulta = "SELECT * FROM chamados ORDER BY id_chamado DESC";
+                $resultado = mysqli_query($conn, $consulta);
 
-  <a href="menu.php">Link agendamento</a>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+                while ($dados = mysqli_fetch_assoc($resultado)) {
+                    echo "<tr>";
+                    echo "<td>" . '<a href="editar_chamado_form.php?id_chamado=' . $dados['id_chamado'] . '">' . $dados['id_chamado'] . '</a>' . "</td>";
+                    echo "<td>" . $dados['titulo_chamado'] . "</td>";
+                    echo "<td>" . $dados['descricao'] . "</td>";
+                    echo "<td>" . $dados['whats'] . "</td>";
+                    echo "<td>" . $dados['data_abertura'] . "</td>";
+                    echo "<td>" . $dados['hora_abertura'] . "</td>";
+                    echo "<td>" . $dados['usuario_abertura'] . "</td>";
+                    echo "<td>" . $dados['categoria_chamado'] . "</td>";
+                    echo "<td><a type='button' class='btn btn-primary' href='mover_chamado_dev.php?id=" . $dados['id_chamado'] . "'>Mover</a></td>";
+                    echo "<td><a type='button' class='btn btn-success' href='responder_chamado.php?id=" . $dados['id_chamado'] . "'><i class='fa-solid fa-check'></i>Finalizar</a></td>";
+                    echo "</tr>";
+                }
+
+                // if($_SESSION['setor'] == 'administracao'){
+                //     echo "<a href=\"cad_usuario_form.php\">Cadastrar novo usuário </p>";
+                // }
+
+            
+                //pra verificar se a sessão está funcionando
+                // echo $_SESSION['usuario']
+
+                ?>
+            </tr>
+        </table>
+    </div>
+    <a href="logout.php"></a>
+    </div>
 </body>
 
 </html>
