@@ -20,20 +20,20 @@
 
         <ul>
             <li>
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="corte" name="servico">
-                <label class="form-check-label" for="inlineCheckbox1">Corte de cabelo</label>
+                <input class="form-check-input" type="radio" id="inlineradio1" value="corte" name="servico">
+                <label class="form-check-label" for="inlineradio1">Corte de cabelo</label>
             </li>
             <li>
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="corteebarba"name="servico">
-                <label class="form-check-label" for="inlineCheckbox2">Corte de cabelo e barba</label>
+                <input class="form-check-input" type="radio" id="inlineradio2" value="corteebarba"name="servico">
+                <label class="form-check-label" for="inlineradio2">Corte de cabelo e barba</label>
             </li>
             <li>
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="barba"name="servico">
-                <label class="form-check-label" for="inlineCheckbox3">Barba</label>
+                <input class="form-check-input" type="radio" id="inlineradio3" value="barba"name="servico">
+                <label class="form-check-label" for="inlineradio3">Barba</label>
             </li>
             <li>
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="tintura"name="servico">
-                <label class="form-check-label" for="inlineCheckbox4">Tintura</label>
+                <input class="form-check-input" type="radio" id="inlineradio4" value="tintura"name="servico">
+                <label class="form-check-label" for="inlineradio4">Tintura</label>
             </li>
                 <button type="submit" class="btn btn-primary">Avançar</button>
         </ul>
