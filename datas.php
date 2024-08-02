@@ -94,7 +94,7 @@
     //     break;
     // }
 
-    $diaMesFim = $diaMes + 30;
+    $diaMesFim = $diaMes + 15;
 
     echo   "$arrayMes[$mes] <br> ";
 
@@ -170,7 +170,9 @@
 
 
     $diferenca = 15 - $quantidadeBotoes;
-    $limiteBotoes = 35;
+
+    //Delimita a quantidade de botões que pode ter na tela
+    $limiteBotoes = 15;
     $inicioProximoMes = 1;
 
     //Faz a quebra para o proximo mês, caso o botão chegue no último dia do mês
