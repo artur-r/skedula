@@ -28,6 +28,8 @@
 
     $servico = $_GET['servico'];
     
+    //Será utilizada para consultas melhores
+    $data =  date('d/n/Y'); 
 
     $arrayDiaSemana = array(
       1 => "Segunda-feira",
@@ -92,7 +94,7 @@
     //     break;
     // }
 
-    $diaMesFim = $diaMes + 15;
+    $diaMesFim = $diaMes + 30;
 
     echo   "$arrayMes[$mes] <br> ";
 
@@ -154,7 +156,7 @@
       if ($diaAtualSemana == "Domingo") {
         echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
       } else {
-        echo "<button type='button' class='btn w-25 btn-outline-primary'><a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&servico=$servico'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&servico=$servico&data=$data'><button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button></a>";
       }
       $diaMes++;
 
@@ -166,8 +168,9 @@
       $quantidadeBotoes++;
     }
 
+
     $diferenca = 15 - $quantidadeBotoes;
-    $limiteBotoes = 15;
+    $limiteBotoes = 35;
     $inicioProximoMes = 1;
 
     //Faz a quebra para o proximo mês, caso o botão chegue no último dia do mês
@@ -186,7 +189,7 @@
       if ($diaAtualSemana == "Domingo") {
         echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $inicioProximoMes</button>";
       } else {
-        echo "<button type='button' class='btn w-25 btn-outline-primary <a'href='horarios.php?diaAtualSemana=$diaAtualSemana&inicioProximoMes=$inicioProximoMes'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&servico=$servico&mes=$mes&data=$data'><button type='button' class='btn w-25 btn-outline-primary'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
       }
 
       $quantidadeBotoes++;

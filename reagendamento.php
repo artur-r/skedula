@@ -27,11 +27,18 @@
 
     include_once("conexao.php");
 
+    date_default_timezone_set('America/Sao_Paulo');
+
     $usuario = $_SESSION['usuario'];
     $email = $_SESSION['email'];
 
+    $ano = date('Y');
+    $mes = date('n');
+    $diaMes = date('d');
+    $diaSemana = date('N');
 
-    $sql = "SELECT * FROM agenda WHERE (email = '$email')";
+
+    $sql = "SELECT * FROM agenda WHERE (email = '$email') AND (dia_mes >= $diaMes) AND (ano >= $ano)";
 
     $consulta = mysqli_query($conn, $sql);
 

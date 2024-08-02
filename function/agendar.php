@@ -27,6 +27,7 @@
         $diaMes = $_GET['diaMes'];
         $servico = $_GET['servico'];
         $horario = $_GET['horario'];
+        $data = $_GET['data'];
 
         $usuario = $_SESSION['usuario'];
         $email = $_SESSION['email'];
@@ -35,8 +36,8 @@
 
 
 
-        $sql = mysqli_query($conn,"INSERT INTO agenda (cliente, email, servico, horario, dia_semana, dia_mes, mes, ano)
-                         VALUES  ('$usuario','$email','$servico','$horario','$diaAtualSemana','$diaMes','$mes','$ano')");
+        $sql = mysqli_query($conn,"INSERT INTO agenda (cliente, email, servico, horario, dia_semana, dia_mes, mes, ano, data)
+                         VALUES  ('$usuario','$email','$servico','$horario','$diaAtualSemana','$diaMes','$mes','$ano','$data')");
 
 
       

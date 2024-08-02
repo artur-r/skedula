@@ -3,7 +3,11 @@
 }
 
 .bg-custom{
-    background-color:#7ac0f6 !important;
+    background-color:#191919 !important;
+}
+
+label{
+    color: white !important;
 }
 
 .btn-outline-primary{
