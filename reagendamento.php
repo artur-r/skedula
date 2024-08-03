@@ -19,7 +19,7 @@
 
     <table  class='table table-dark table-hover' >
         <tr>
-        <th>Nome no agendamento</th> <th>Dia agendado</th><th>Horário</th><th>data</th><th></th>
+        <th>Serviço agendado</th> <th>Dia agendado</th><th>Horário</th><th>data</th><th></th>
         </tr>        
         
 <tr>
@@ -32,13 +32,15 @@
     $usuario = $_SESSION['usuario'];
     $email = $_SESSION['email'];
 
+    $hora = date('H');
     $ano = date('Y');
     $mes = date('n');
     $diaMes = date('d');
     $diaSemana = date('N');
 
+    $data =  date('Y-m-d'); 
 
-    $sql = "SELECT * FROM agenda WHERE (email = '$email') AND (dia_mes >= $diaMes) AND (ano >= $ano)";
+    $sql = "SELECT * FROM agenda WHERE (email = '$email') AND (horario > $hora) AND (data = $data) OR (data > $data)";
 
     $consulta = mysqli_query($conn, $sql);
 
@@ -51,11 +53,11 @@
         //trocar os números no banco pelos nomes dos dias
         $diaMesAgendado = $resultado['dia_mes'];
         echo"<tr>";
-           echo" <td>$resultado[cliente]";
+           echo" <td>$resultado[servico]";
            echo"<td>$diaSemanaAgendado</td>";
            echo "<td>$resultado[horario]:00</td>";
            echo"<td>$diaMesAgendado/$mesAgendado</td>";
-           echo"<td><button type='button' class='btn btn-primary btn-sm'><a href=function/cancelar.php?email=$email&diaSemanaAgendado=$diaSemanaAgendado&diaMesAgendado=$resultado[dia_mes]&mesAgendado=$mesAgendado&horario=$resultado[horario]>Reagendar</a></button></td>";
+           echo"<td><button type='button' class='btn btn-primary btn-sm'><a href=function/reagendar.php?email=$email&diaSemanaAgendado=$diaSemanaAgendado&diaMesAgendado=$resultado[dia_mes]&mesAgendado=$mesAgendado&horario=$resultado[horario]>Reagendar</a></button></td>";
         echo "</tr>";    
         
     }

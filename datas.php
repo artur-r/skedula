@@ -29,7 +29,8 @@
     $servico = $_GET['servico'];
     
     //Será utilizada para consultas melhores
-    $data =  date('d/n/Y'); 
+    $data =  date('d-m-Y'); 
+    $dataConvertida = date('Y-m-d', strtotime($data));
 
     $arrayDiaSemana = array(
       1 => "Segunda-feira",
@@ -156,7 +157,7 @@
       if ($diaAtualSemana == "Domingo") {
         echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
       } else {
-        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&servico=$servico&data=$data'><button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button></a>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&servico=$servico&data=$dataConvertida'><button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button></a>";
       }
       $diaMes++;
 
@@ -166,6 +167,7 @@
         $diaSemana = 1;
       }
       $quantidadeBotoes++;
+      $dataConvertida++;
     }
 
 
@@ -191,11 +193,12 @@
       if ($diaAtualSemana == "Domingo") {
         echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $inicioProximoMes</button>";
       } else {
-        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&servico=$servico&mes=$mes&data=$data'><button type='button' class='btn w-25 btn-outline-primary'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&servico=$servico&mes=$mes&data=$dataConvertida'><button type='button' class='btn w-25 btn-outline-primary'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
       }
 
       $quantidadeBotoes++;
       $inicioProximoMes++;
+      $dataConvertida++;
     }
 
 
