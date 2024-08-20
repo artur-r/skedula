@@ -27,8 +27,10 @@
         $diaMes = $_GET['diaMes'];
         $servico = $_GET['servico'];
         $horario = $_GET['horario'];
+        $tipo = $_GET['tipo'];
         
         $data = $_GET['data'];
+        
         
 
         $usuario = $_SESSION['usuario'];
@@ -37,7 +39,7 @@
 
 
 
-
+        if ($tipo =='agendar'){
 
         $sql = mysqli_query($conn,"INSERT INTO agenda (cliente, email, servico, horario, dia_semana, dia_mes, mes, ano, data)
                         VALUES  ('$usuario','$email','$servico','$horario','$diaAtualSemana','$diaMes','$mes','$ano','$data')");
@@ -49,6 +51,15 @@
             }else{
                 echo "Falha ao agendar";
             }    
+        }else if ($tipo == 'reagendar'){
+            
+            $sql = mysqli_query($conn,"DELETE FROM agenda WHERE email = '$email' AND data = '$dataReag' AND horario ='$horarioReag'");
+
+            $sql = mysqli_query($conn,"INSERT INTO agenda (cliente, email, servico, horario, dia_semana, dia_mes, mes, ano, data)
+                        VALUES  ('$usuario','$email','$servico','$horario','$diaAtualSemana','$diaMes','$mes','$ano','$data')");
+        }
+
+
 
 
         ?>

@@ -27,7 +27,7 @@
       $diaMes = $_GET['diaMes'];
       $servico = $_GET['servico'];
       $data = $_GET['data'];
-
+      $tipo = $_GET['tipo'];
      
 
 
@@ -51,7 +51,7 @@
         for ($i = 8; $i < 18; $i++) {
           //Gera botões com horários
             echo "<button type='button' class='btn btn-primary'>
-           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i&data=$data'>
+           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i&data=$data&tipo=$tipo'>
                 $i:00
             </a> 
               </button>";  
@@ -66,7 +66,7 @@
           //verifica se a variável i é um horário já agendado, se o valor de i, não estiver agendado, gera um botão
           if (!in_array($i, $horariosAgendados)) { 
             echo "<button type='button' class='btn btn-primary'>
-           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i&data=$data'>
+           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i&data=$data&tipo=$tipo'>
                 $i:00
             </a> 
               </button>";   
@@ -87,8 +87,14 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+
+      var horario - <?php print $i; ?>
+
+      document.write =  horario
+
     </script>
 
+        
     <button type="button" class="btn btn-info"><a href="javascript:history.back()">Voltar</a></button>
 
 </body>

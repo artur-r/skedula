@@ -57,7 +57,7 @@
            echo"<td>$diaSemanaAgendado</td>";
            echo "<td>$resultado[horario]:00</td>";
            echo"<td>$diaMesAgendado/$mesAgendado</td>";
-           echo"<td><button type='button' class='btn btn-primary btn-sm'><a href=function/reagendar.php?email=$email&diaSemanaAgendado=$diaSemanaAgendado&diaMesAgendado=$resultado[dia_mes]&mesAgendado=$mesAgendado&horario=$resultado[horario]>Reagendar</a></button></td>";
+           echo"<td><button type='button' class='btn btn-primary btn-sm'><a href='datas.php?email=$email&dataagendada=$data&horarioagendado=$resultado[horario]&tipo=reagendar'>Reagendar</a></button></td>";
         echo "</tr>";    
         
     }
