@@ -26,9 +26,7 @@
       $diaAtualSemana = $_GET['diaAtualSemana']; //pega da URL o dia da semana do botão selecionado
       $diaMes = $_GET['diaMes'];
       $servico = $_GET['servico'];
-      $data = $_GET['data'];
-      $tipo = $_GET['tipo'];
-     
+      $data = $_GET['data'];     
 
 
       $sql = "SELECT * FROM agenda WHERE (dia_mes = '$diaMes' AND dia_semana = '$diaAtualSemana' AND mes='$mes' AND ano='$ano')";
@@ -51,7 +49,7 @@
         for ($i = 8; $i < 18; $i++) {
           //Gera botões com horários
             echo "<button type='button' class='btn btn-primary'>
-           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i&data=$data&tipo=$tipo'>
+           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i&data=$data'>
                 $i:00
             </a> 
               </button>";  
@@ -66,7 +64,7 @@
           //verifica se a variável i é um horário já agendado, se o valor de i, não estiver agendado, gera um botão
           if (!in_array($i, $horariosAgendados)) { 
             echo "<button type='button' class='btn btn-primary'>
-           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i&data=$data&tipo=$tipo'>
+           <a href='function/agendar.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$mes&ano=$ano&servico=$servico&horario=$i&data=$data'>
                 $i:00
             </a> 
               </button>";   

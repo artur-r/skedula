@@ -27,9 +27,7 @@
     $diaSemana = date('N');
 
     $servico = $_GET['servico'];
-    $tipo = $_GET['tipo'];
-    $dataagendada = $_GET['dataagendada'];
-    $horarioagendado = $_GET['horarioagendado'];
+  
   
     
     //Será utilizada para consultas melhores
@@ -161,7 +159,7 @@
       if ($diaAtualSemana == "Domingo") {
         echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
       } else {
-        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&servico=$servico&data=$dataConvertida&&tipo=$tipo'><button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button></a>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&data=$dataConvertida&servico=$servico'><button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button></a>";
       }
       $diaMes++;
 
@@ -197,7 +195,7 @@
       if ($diaAtualSemana == "Domingo") {
         echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $inicioProximoMes</button>";
       } else {
-        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&servico=$servico&mes=$mes&data=$dataConvertida'><button type='button' class='btn w-25 btn-outline-primary&tipo=$tipo'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&mes=$mes&data=$dataConvertida$servico=$servico'><button type='button' class='btn w-25 btn-outline-primary'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
       }
 
       $quantidadeBotoes++;
