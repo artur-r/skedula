@@ -76,6 +76,7 @@
 
       ?>
 
+    
       
  
 
@@ -83,6 +84,9 @@
 
 
     <script>
+
+     
+
       $(document).ready(function() {
         $('button').click(function() {
           var horario = $(this).attr('horario');
@@ -92,33 +96,21 @@
            &ano=<?php echo $ano;?>
            &servico=<?php echo $servico;?>
            &horario=' + horario + '&data=<?php echo $data; ?>'
+           
+           const modal = document.querySelector("dialog")
 
-//verificar o motivo de ter funcionado com aspas simples no inicio
-    var modal = `
-            <div class="modal fade" tabindex="-1" id="modal">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Confirmação de agendamento</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Deseja confirmar seu agendamento para dia</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          
-          $("body").append(modal)
+           $('body').append(`<dialog>
+        <h5>Opa</h5>
+        <hr>
+       <span>Favor confirmar seu agendamento para <strong><?php echo $diaAtualSemana;?></strong> às <strong>`+horario+`:00</strong> horas?<span>
+       <hr>
+       <button type="button" class="btn btn-warning">Cancelar</button>
+       <button type="button" class="btn btn-success">Confirmar</button>
+      </dialog>`);
 
-          var aparecerModal = new bootstrap.Modal(document.getElementById('modal'));
 
-          aparecerModal.show();
+
+          modal.showModal()
 
           
 
