@@ -76,6 +76,9 @@
 
       ?>
 
+      
+ 
+
     </div>
 
 
@@ -83,20 +86,50 @@
       $(document).ready(function() {
         $('button').click(function() {
           var horario = $(this).attr('horario');
-          var url = 'function/agendar.php?diaAtualSemana=<?php echo $diaAtualSemana;
-           ?>&diaMes=<?php echo $diaMes;
-           ?>&mes=<?php echo $mes;
-           ?>&ano=<?php echo $ano;
-           ?>&servico=<?php echo $servico;
-           ?>&horario=' + horario + '&data=<?php echo $data; ?>'
+          var url = 'function/agendar.php?diaAtualSemana;=<?php echo $diaAtualSemana;?>
+           &diaMes=<?php echo $diaMes;?>
+           &mes=<?php echo $mes;?>
+           &ano=<?php echo $ano;?>
+           &servico=<?php echo $servico;?>
+           &horario=' + horario + '&data=<?php echo $data; ?>'
 
-          alert('botão clicado' + horario)
+//verificar o motivo de ter funcionado com aspas simples no inicio
+    var modal = `
+            <div class="modal fade" tabindex="-1" id="modal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Confirmação de agendamento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Deseja confirmar seu agendamento para dia</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          $("body").append(modal)
 
-          window.location=url
+          var aparecerModal = new bootstrap.Modal(document.getElementById('modal'));
+
+          aparecerModal.show();
+
+          
+
+          // window.location=url
 
         });
       });
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
 
     <button type="button" class="btn btn-info"><a href="javascript:history.back()">Voltar</a></button>
