@@ -90,7 +90,7 @@
       $(document).ready(function() {
         $('button').click(function() {
           var horario = $(this).attr('horario');
-          var url = 'function/agendar.php?diaAtualSemana;=<?php echo $diaAtualSemana;?>
+          var url = 'function/agendar.php?diaAtualSemana=<?php echo $diaAtualSemana;?>
            &diaMes=<?php echo $diaMes;?>
            &mes=<?php echo $mes;?>
            &ano=<?php echo $ano;?>
@@ -98,6 +98,8 @@
            &horario=' + horario + '&data=<?php echo $data; ?>'
            
            const modal = document.querySelector("dialog")
+           const botaoFechar = document.querySelector("dialog button")
+           const botaoConfirmar = document.querySelector("dialog .btn-success")
 
            $('body').append(`<dialog>
         <h5>Opa</h5>
@@ -109,18 +111,25 @@
       </dialog>`);
 
 
-
           modal.showModal()
 
+          botaoFechar.onclick =function(){
+            modal.close()
+          }
+
+
+          botaoConfirmar.onclick = function(){
+            window.location=url
+          }
           
 
-          // window.location=url
+          
 
         });
       });
     </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
 
