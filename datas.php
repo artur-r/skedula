@@ -195,7 +195,7 @@
       if ($diaAtualSemana == "Domingo") {
         echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $inicioProximoMes</button>";
       } else {
-        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&mes=$mes&data=$dataConvertida$servico=$servico'><button type='button' class='btn w-25 btn-outline-primary'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&mes=$mes&data=$dataConvertida&servico=$servico'><button type='button' class='btn w-25 btn-outline-primary'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
       }
 
       $quantidadeBotoes++;
