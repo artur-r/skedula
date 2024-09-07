@@ -87,7 +87,7 @@
 
      
 
-      $(document).ready(function() {
+      
         $('button').click(function() {
           var horario = $(this).attr('horario');
           var url = 'function/agendar.php?diaAtualSemana=<?php echo $diaAtualSemana;?>
@@ -97,36 +97,50 @@
            &servico=<?php echo $servico;?>
            &horario=' + horario + '&data=<?php echo $data; ?>'
            
-           const modal = document.querySelector("dialog")
-           const botaoFechar = document.querySelector("dialog button")
-           const botaoConfirmar = document.querySelector("dialog .btn-success")
+          
+            //verifica se já existe um modal no html
+           if ($('dialog').length === 0) {
+        // Adicionando o modal ao body
+        $('body').append(`
+            <dialog>
+                <h5>Opa</h5>
+                <hr>
+                <span>Favor confirmar seu agendamento para 
+                    <strong><?php echo $diaAtualSemana;?></strong> às <strong class="horario-modal"></strong> horas?
+                </span>
+                <hr>
+                <button type="button" class="btn btn-warning">Cancelar</button>
+                <button type="button" class="btn btn-success">Confirmar</button>
+            </dialog>
+        `);
+    }
 
-           $('body').append(`<dialog>
-        <h5>Opa</h5>
-        <hr>
-       <span>Favor confirmar seu agendamento para <strong><?php echo $diaAtualSemana;?></strong> às <strong>`+horario+`:00</strong> horas?<span>
-       <hr>
-       <button type="button" class="btn btn-warning">Cancelar</button>
-       <button type="button" class="btn btn-success">Confirmar</button>
-      </dialog>`);
+    // Atualiza o horário no modal existente caso já exista um modal
+    $('.horario-modal').text(horario + ':00');
 
+          //Esse bloco precisa vir após o append para não ser necessário clicar 2 vezes no botão para funcionar
+           const modal = $('dialog')[0];
+           const botaoFechar = $('dialog .btn-warning');
+           const botaoConfirmar = $('dialog .btn-success');
 
-          modal.showModal()
+           
+           
+          modal.showModal();
 
-          botaoFechar.onclick =function(){
+          botaoFechar.click (function(){
             modal.close()
-          }
+          });
 
 
-          botaoConfirmar.onclick = function(){
+          botaoConfirmar.click (function(){
             window.location=url
-          }
+          });
           
 
           
 
         });
-      });
+      
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
