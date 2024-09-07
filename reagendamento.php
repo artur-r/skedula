@@ -40,7 +40,8 @@
 
     $data =  date('Y-m-d'); 
 
-    $sql = "SELECT * FROM agenda WHERE (email = '$email') AND (horario >'$hora') AND (data = '$data') OR (data > '$data')";
+    $sql = "SELECT * FROM agenda WHERE (email = '$email') AND (data = '$data') AND (horario >'$hora') 
+                                 OR (email = '$email') AND (data > '$data')";
 
     $consulta = mysqli_query($conn, $sql);
 
