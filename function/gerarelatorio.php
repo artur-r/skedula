@@ -16,57 +16,28 @@
     <p class="display-7 bg-purple border border-primary p-1 text-light" style="border-radius:10px;">Selecione um filtro para tirar um relatório</p>
 
     <?php
+ob_start();
 
-    include_once('conexao.php');
-
-    ob_start();
-
-define ('FPDF_FONTPATH','fpdf186/font');
+// Inclua o arquivo FPDF
 require 'fpdf186/fpdf.php';
 
-$pdf = new FPDF ('P', 'cm', 'A4');
+// Crie uma nova instância da classe FPDF
+$pdf = new FPDF();
+
+// Adicione uma página
 $pdf->AddPage();
-$pdf->setFont('Arial','B','12');
 
+// Defina a fonte (Arial, negrito, tamanho 16)
+$pdf->SetFont('Arial', 'B', 16);
 
-$pdo = new PDO ('mysql:host=localhost; dbname=skedula','root','');
-$sql = $pdo->prepare("SELECT *FROM agenda");
-$sql->execute();
+// Adicione um texto
+$pdf->Cell(40, 10, 'Relatório de agendamentos!');
 
-
-//Titulo
-$str = "Relatório de agendamentos mensal";
-$str = iconv('UTF-8', 'windows-1252', $str);
-$pdf->Cell(15,2,$str,0,1,'c');
-
-
-//Cabeçalho
-    $pdf->setFillColor(173, 249, 238,);
-    $str = " Serviço";
-    $str = iconv('UTF-8', 'windows-1252', $str);
-
-    $pdf->Cell(4,1, "Cliente",1,0,'c', TRUE);
-    $pdf->Cell(4,1, $str,1,0,'c', TRUE);
-    $pdf->Cell(2,1, "Horario",1,1,'c', TRUE);
-
-
-
-//dados    
-foreach($sql as $resultado){
-
-    $pdf->setFont('Arial','','12');
-    $pdf->Cell(4,1, $resultado['cliente'],1,0,'c');
-    $pdf->Cell(4,1, $resultado['servico'],1,0,'c');
-    $pdf->Cell(2,1, $resultado['horario'],1,1,'c');
-}
-
-
+// Gere o arquivo PDF e envie ao navegador
 $pdf->Output();
 
-
+// Limpa o buffer de saída
 ob_end_flush();
-
-
 
 ?>
 
