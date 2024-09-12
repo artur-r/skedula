@@ -15,60 +15,27 @@
   <div class="container pt-5">
     <p class="display-7 bg-purple border border-primary p-1 text-light" style="border-radius:10px;">Selecione um filtro para tirar um relatório</p>
 
+
     <?php
 
     include_once('conexao.php');
 
-    ob_start();
 
-define ('FPDF_FONTPATH','fpdf186/font');
-require 'fpdf186/fpdf.php';
+  echo "<form action='function/gerarrelatorio.php' method='get'>
+  
+  <label>Data inicial:</label>
+  <input type='date' name='datainicial' id=''>
 
-$pdf = new FPDF ('P', 'cm', 'A4');
-$pdf->AddPage();
-$pdf->setFont('Arial','B','12');
+  <label>Data final:</label>
+  <input type='date' name='datafinal' id=''>
 
+      <button type='submit'>Gerar relatório</button>
 
-$pdo = new PDO ('mysql:host=localhost; dbname=skedula','root','');
-$sql = $pdo->prepare("SELECT *FROM agenda");
-$sql->execute();
-
-
-//Titulo
-$str = "Relatório de agendamentos mensal";
-$str = iconv('UTF-8', 'windows-1252', $str);
-$pdf->Cell(15,2,$str,0,1,'c');
-
-
-//Cabeçalho
-    $pdf->setFillColor(173, 249, 238,);
-    $str = " Serviço";
-    $str = iconv('UTF-8', 'windows-1252', $str);
-
-    $pdf->Cell(4,1, "Cliente",1,0,'c', TRUE);
-    $pdf->Cell(4,1, $str,1,0,'c', TRUE);
-    $pdf->Cell(2,1, "Horario",1,1,'c', TRUE);
+  </form>"
 
 
 
-//dados    
-foreach($sql as $resultado){
-
-    $pdf->setFont('Arial','','12');
-    $pdf->Cell(4,1, $resultado['cliente'],1,0,'c');
-    $pdf->Cell(4,1, $resultado['servico'],1,0,'c');
-    $pdf->Cell(2,1, $resultado['horario'],1,1,'c');
-}
-
-
-$pdf->Output();
-
-
-ob_end_flush();
-
-
-
-?>
+    ?>
 
 
 
