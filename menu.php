@@ -19,7 +19,6 @@
       <div class="d-grid gap-2">
 
       <a href="servicos.php" class="btn btn-link border border-primary">Agendar horário</a>
-      <a href="reagendamento.php" class="btn btn-link border border-primary">Reagendar horário</a>
       <a href="cancelamento.php" class="btn btn-link border border-primary">Cancelar agendamento</a>
       <a href="relatorios.php" class="btn btn-link border border-primary">Tirar relatórios</a>
 
@@ -45,6 +44,13 @@
     </div> -->
   </form>
 
+<?php 
+session_start();
+
+if ($_SESSION ['usuario'] == ''){
+  header('location:index.php');
+}
+?>
 
   <button type="button" class="btn btn-info"><a href="javascript:history.back()">Voltar</a></button>
 

@@ -16,6 +16,12 @@
             "type": "php",
             "request": "launch",
             "port": 9003
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Local",
         }
+
     ]
 }

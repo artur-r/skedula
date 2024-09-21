@@ -44,3 +44,9 @@ a{
     font-size:x-large;
 }
 
+@media  (max-width: 528px){        
+.botaodata{
+    min-height: 150px;
+}
+}
+

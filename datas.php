@@ -157,9 +157,9 @@
 
       // Gera o botão com o dia da semana atual, que vai se atualizando no array, junto com o dia do mês. Se o dia for domingo, o botão estará bloqueado
       if ($diaAtualSemana == "Domingo") {
-        echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
+        echo "<button type='button' class='btn botaodata w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $diaMes</button>";
       } else {
-        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&data=$dataConvertida&servico=$servico'><button type='button' class='btn w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button></a>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$diaMes&mes=$arrayMes&ano=$ano&data=$dataConvertida&servico=$servico'><button type='button' class='btn botaodata w-25 btn-outline-primary'>$diaAtualSemana  <hr>  DIA $diaMes</button></a>";
       }
       $diaMes++;
 
@@ -193,9 +193,9 @@
       }
 
       if ($diaAtualSemana == "Domingo") {
-        echo "<button type='button' class='btn w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $inicioProximoMes</button>";
+        echo "<button type='button' class='btn botaodata w-25 btn-outline-primary disabled'>$diaAtualSemana  <hr>  DIA $inicioProximoMes</button>";
       } else {
-        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&mes=$mes&data=$dataConvertida&servico=$servico'><button type='button' class='btn w-25 btn-outline-primary'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
+        echo "<a href='horarios.php?diaAtualSemana=$diaAtualSemana&diaMes=$inicioProximoMes&ano=$ano&mes=$mes&data=$dataConvertida&servico=$servico'><button type='button' class='btn botaodata w-25 btn-outline-primary'> $diaAtualSemana  <hr>  DIA $inicioProximoMes</button></a>";
       }
 
       $quantidadeBotoes++;

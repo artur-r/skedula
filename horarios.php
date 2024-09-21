@@ -13,7 +13,7 @@
 <body class="bg-custom">
 
 
-  <div class="container pt-5">
+  <div class="container pt-5 horarios">
 
 
     <div class="d-grid gap-3 col-6 mx-auto">
@@ -98,6 +98,18 @@
            &horario=' + horario + '&data=<?php echo $data; ?>'
            
           
+          // $.ajax({
+          //   url: "horarios.php",
+          //   success: function(result){
+          //     alert(result);
+          //   },
+          //   error: function(){
+          //     alert("erro");
+          //   }
+
+          // })
+           
+          
             //verifica se já existe um modal no html
            if ($('dialog').length === 0) {
         // Adicionando o modal ao body
@@ -106,7 +118,7 @@
                 <h5>Opa</h5>
                 <hr>
                 <span>Favor confirmar seu agendamento para 
-                    <strong><?php echo $diaAtualSemana;?></strong> às <strong class="horario-modal"></strong> horas?
+                    <strong><?php echo $diaAtualSemana;?></strong> às <strong class="horario-modal"></strong> horas
                 </span>
                 <hr>
                 <button type="button" class="btn btn-warning">Cancelar</button>
