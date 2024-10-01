@@ -25,7 +25,7 @@
             </li>
             <li>
                 <input class="form-check-input" type="radio" id="inlineradio2" value="corteebarba"name="servico">
-                <label class="form-check-label" for="inlineradio2">Corte de cabelo e barba</label>
+                <label class="form-check-label" for="inlineradio2">Corte e barba</label>
             </li>
             <li>
                 <input class="form-check-input" type="radio" id="inlineradio3" value="barba"name="servico">

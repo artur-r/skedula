@@ -1,5 +1,5 @@
 .bg-purple{
-    background-color:#c67020 !important;
+    background-color:#040a32 !important;
 }
 
 .bg-custom{
@@ -12,6 +12,15 @@ label{
 
 .btn-outline-primary{
     color:#3850ff !important;
+}
+
+.btn-outline-primary:hover {
+    color: #fbfbfb !important; /* Cor do texto do botão */
+
+}
+
+.btn-outline-primary:hover a {
+    color: #fbfbfb !important; /* Cor do texto do link dentro do botão */
 }
 
 .orange{

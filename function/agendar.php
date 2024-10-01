@@ -20,7 +20,6 @@
 
         include_once("../conexao.php");
 
-        date_default_timezone_set('America/Sao_Paulo');
         $ano = $_GET['ano'];
         $mes = $_GET['mes'];
         $diaAtualSemana = $_GET['diaAtualSemana'];
@@ -29,7 +28,7 @@
         $horario = $_GET['horario'];
         
         $data = $_GET['data'];
-        
+      
         
 
         $usuario = $_SESSION['usuario'];

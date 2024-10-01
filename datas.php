@@ -33,6 +33,7 @@
     //Será utilizada para consultas melhores
     $data =  date('d-m-Y'); 
     $dataConvertida = date('Y-m-d', strtotime($data));
+    
 
     $arrayDiaSemana = array(
       1 => "Segunda-feira",
@@ -169,7 +170,7 @@
         $diaSemana = 1;
       }
       $quantidadeBotoes++;
-      $dataConvertida++;
+      $dataConvertida = date('Y-m-d', strtotime($dataConvertida . ' +1 day')); // Incrementa a data
     }
 
 
@@ -200,11 +201,9 @@
 
       $quantidadeBotoes++;
       $inicioProximoMes++;
-      $dataConvertida++;
+      $dataConvertida = date('Y-m-d', strtotime($dataConvertida . ' +1 day')); // Incrementa a data
     }
 
-
-    // $sql = SELECT * FROM agenda where 
 
     ?>
 
