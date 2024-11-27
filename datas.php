@@ -100,7 +100,7 @@
 
     $diaMesFim = $diaMes + 15;
 
-    echo   "$arrayMes[$mes] <br> ";
+    echo   "<p class = 'mesDatas'>$arrayMes[$mes] </p>";
 
     $proximoMes = $arrayMes[$mes + 1];
     $arrayMes = $arrayMes[$mes];
@@ -182,7 +182,7 @@
 
     //Faz a quebra para o proximo mês, caso o botão chegue no último dia do mês
     if ($diaMes == $ultimoDiaMes + 1 && $quantidadeBotoes < $limiteBotoes) {
-      echo  "<br><br> $proximoMes <br>";
+      echo  "<br><br> <p class = 'mesDatas'>$proximoMes </p>";
     }
 
     //Gera os dias do próximo mês, e no proximo mês, gerará apenas os botões que faltam para completar o limite de 15 na tela
@@ -205,6 +205,7 @@
     }
 
 
+   
     ?>
 
 

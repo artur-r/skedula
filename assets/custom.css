@@ -3,7 +3,7 @@
 }
 
 .bg-custom{
-    background-color:#191919 !important;
+    background-image: url("../background.jpg");
 }
 
 label{
@@ -51,6 +51,12 @@ a{
 
 .subtitle {
     font-size:x-large;
+}
+
+.mesDatas{
+    color: #ffffff !important;
+    padding: 0%;
+    margin: 0%;
 }
 
 @media  (max-width: 528px){        
