@@ -2,9 +2,9 @@
     background-color:#040a32 !important;
 }
 
-.bg-custom{
-    background-image: url("../background.jpg");
-}
+/* .bg-custom{
+    background-image: url("../background/background.jpg" );
+} */
 
 label{
     color: white !important;
@@ -42,8 +42,8 @@ a{
     color: #ffffff!important;
 }
 
-.bg-main{
-    background-image: linear-gradient(rgb(78, 107, 192)35%,rgb(26, 79, 114)60%,rgb(7, 17, 46)) !important;
+.bg-custom{
+    background-image: linear-gradient(rgb(24, 25, 28)35%,rgb(30, 44, 82)60%,rgb(37, 58, 123));
     background-repeat: no-repeat ;
     background-size: cover;
     background-attachment: fixed;

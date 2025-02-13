@@ -103,6 +103,9 @@
     echo   "<p class = 'mesDatas'>$arrayMes[$mes] </p>";
 
     $proximoMes = $arrayMes[$mes + 1];
+    if ($mes =='12'){
+      $proximoMes = 'Janeiro';
+    }
     $arrayMes = $arrayMes[$mes];
     $diaAtualSemana = $arrayDiaSemana[$diaSemana];
     $diaMesInicio = 1;
