@@ -18,7 +18,7 @@
 
     <?php
 
-    include_once('conexao.php');
+    include_once("function/conexao.php");
 
 
   echo "<form action='function/gerarrelatorio.php' method='get'>

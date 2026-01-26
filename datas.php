@@ -17,7 +17,7 @@
 
     <?php
 
-    include_once("conexao.php");
+    include_once("function/conexao.php");
 
     date_default_timezone_set('America/Sao_Paulo');
 

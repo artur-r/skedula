@@ -18,7 +18,7 @@
     <div class="d-grid gap-3 col-6 mx-auto">
         <?php
 
-        include_once("../conexao.php");
+        include_once("conexao.php");
 
         $ano = $_GET['ano'];
         $mes = $_GET['mes'];

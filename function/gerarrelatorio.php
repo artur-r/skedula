@@ -17,7 +17,7 @@
 
     <?php
 
-    include_once('../conexao.php');
+    include_once('conexao.php');
 
     $dataInicial = $_GET['datainicial'];
     $dataFinal = $_GET['datafinal'];

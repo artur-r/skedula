@@ -17,7 +17,7 @@
 
         <?php
 
-        include_once("../conexao.php");
+        include_once("conexao.php");
 
         $email = $_GET['email'];
         $diaSemanaAgendado = $_GET['diaSemanaAgendado'];
