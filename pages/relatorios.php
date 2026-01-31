@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Skedula</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/custom.css">
+  <link rel="stylesheet" href="../assets/custom.css">
 </head>
 
 <body class="bg-custom">
@@ -18,10 +18,10 @@
 
     <?php
 
-    include_once("function/conexao.php");
+    include_once("../function/conexao.php");
 
 
-  echo "<form action='function/gerarrelatorio.php' method='get'>
+  echo "<form action='../function/gerarrelatorio.php' method='get'>
   
   <label>Data inicial:</label>
   <input type='date' name='datainicial' id=''>

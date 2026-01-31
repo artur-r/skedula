@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
     if ($email == $retorno['email']) {
         $_SESSION['usuario'] = $retorno['usuario'];
         $_SESSION['email'] = $retorno['email'];
-        header("location:../menu.php");;
+        header("location:../pages/menu.php");;
     } else {
         echo 'Erro! Se possuir, retire caracteres maiúsculos do e-mail';
     }
@@ -27,7 +27,7 @@ if ($result->num_rows < 1) {
     $_SESSION['usuario'] = $nome;
     $_SESSION['email'] = $email;
     if (mysqli_query($conn, $sql)) {
-        header("location:../menu.php");
+        header("location:../pages/menu.php");
     } else {
         echo "erro";
     }
