@@ -20,6 +20,7 @@
 
       <a href="servicos.php" class="btn btn-link border border-primary">Agendar horário</a>
       <a href="cancelamento.php" class="btn btn-link border border-primary">Cancelar agendamento</a>
+      <a href="cadastroservico.php" class="btn btn-link border border-primary">Cadastrar serviço</a>
       <a href="relatorios.php" class="btn btn-link border border-primary">Tirar relatórios</a>
 
       </div>

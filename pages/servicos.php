@@ -17,26 +17,27 @@
 
 
         <form action="datas.php" method="GET">
+           
+            <ul>
+                <?php
 
-        <ul>
-            <li>
-                <input class="form-check-input" type="radio" id="inlineradio1" value="corte" name="servico">
-                <label class="form-check-label" for="inlineradio1">Corte de cabelo</label>
-            </li>
-            <li>
-                <input class="form-check-input" type="radio" id="inlineradio2" value="corteebarba"name="servico">
-                <label class="form-check-label" for="inlineradio2">Corte e barba</label>
-            </li>
-            <li>
-                <input class="form-check-input" type="radio" id="inlineradio3" value="barba"name="servico">
-                <label class="form-check-label" for="inlineradio3">Barba</label>
-            </li>
-            <li>
-                <input class="form-check-input" type="radio" id="inlineradio4" value="tintura"name="servico">
-                <label class="form-check-label" for="inlineradio4">Tintura</label>
-            </li>
+                include_once("../function/conexao.php");
+
+                $sql = "SELECT *FROM servicos";
+                $consulta = mysqli_query($conn, $sql);
+
+
+                while ($resultado = mysqli_fetch_assoc($consulta)) {
+                        echo "<li>
+                    <input class='form-check-input' type='radio' id='inlineradio1' value=" . $resultado['nome_servico'] . " name='servico' required>
+                    <label class='form-check-label' for='inlineradio1'>" . $resultado['nome_servico'] . "</label>
+                </li>";
+                }
+
+                ?>
+
                 <button type="submit" class="btn btn-primary">Avançar</button>
-        </ul>
+            </ul>
         </form>
 
     </div>
