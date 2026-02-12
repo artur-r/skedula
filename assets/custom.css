@@ -65,3 +65,10 @@ a{
 }
 }
 
+#cadServicoBackground{
+    margin: 0;
+    height: 100vh;
+
+    background: url("../img/backgroundServico.png") 
+                no-repeat center 40% / cover;
+}

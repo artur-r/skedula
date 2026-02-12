@@ -16,7 +16,7 @@
 
         <div class="d-grid gap-3 col-6 mx-auto">
 
-            <form action="..function/cadastrarservico.php" method="post">
+            <form action="../function/cadastrarservico.php" method="post" enctype="multipart/form-data">
 
                 <div class="mb-3">
                     <label for="nomeServico">Nome do serviço:</label>
@@ -35,10 +35,14 @@
                         ?>
                     </select>
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="precoServico">Preço do serviço</label>
                     <input type="number" name="precoservico" id="">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="file" name ="imagem" class="form-control" accept="image/*" id="inputGroupFile02">
                 </div>
 
                 <input type="submit" value="Cadastrar">
