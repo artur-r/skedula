@@ -24,7 +24,7 @@ $preco = $_POST['precoservico'];
 if(isset($_FILES["imagem"]) && !empty($_FILES["imagem"])){
 
 move_uploaded_file($_FILES["imagem"]["tmp_name"], "../img/".$_FILES["imagem"]["name"]);//pega o arquivo e coloca dentro da pasta imagem
-$imagem = "./img/".$_FILES["imagem"]["name"];//cria a variável com caminho que vai subir pro banco de dados
+$imagem = "../img/".$_FILES["imagem"]["name"];//cria a variável com caminho que vai subir pro banco de dados
 
 
 }else{

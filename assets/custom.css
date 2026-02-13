@@ -72,3 +72,16 @@ a{
     background: url("../img/backgroundServico.png") 
                 no-repeat center 40% / cover;
 }
+
+#boxServico img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#boxServico:hover {
+    transform: scale(1.04);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
