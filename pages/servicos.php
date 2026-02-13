@@ -31,8 +31,8 @@
 
                         <a href=datas.php?servico=".$resultado['id']." class='text-decoration-none'>
                     <div id ='boxServico' class='container-fluid border border-primary pt-3 bg-dark p-2 text-white bg-opacity-50' >
-                     <img src=" . $resultado['imagem_servico'] . " class='mb-2'> 
-                     <p class=' fw-semibold fs-5 text-primary text-center' >" . $resultado['nome_servico'] . "</p> 
+                     <img src='" . $resultado['imagem_servico'] . "' class='mb-2'> 
+                     <p class=' fw-semibold fs-5 text-primary text-center' >" . $resultado['nome_servico'] . " (".$resultado['duracao']." Minutos)</p> 
                      <hr class='mb-1 mt-1'>
                      <p class=' fw-bold fs-6 text-success text-center mb-1' >R$ " . $resultado['preco'] . "</p> 
 
