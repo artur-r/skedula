@@ -29,9 +29,14 @@
                         <?php
 
                         for ($i = 5; $i <= 120; $i += 5) {
-                            echo "<option value='$i'>$i minutos</option>";
-                        }
 
+                            $horas = floor($i / 60);
+                            $minutos = $i % 60;
+
+                            $time = sprintf('%02d:%02d:00', $horas, $minutos);
+
+                            echo "<option value='$time'>$i minutos</option>";
+                        }
                         ?>
                     </select>
                 </div>
@@ -42,7 +47,7 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="file" name ="imagem" class="form-control" accept="image/*" id="inputGroupFile02">
+                    <input type="file" name="imagem" class="form-control" accept="image/*" id="inputGroupFile02">
                 </div>
 
                 <input type="submit" value="Cadastrar">
